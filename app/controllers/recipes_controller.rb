@@ -5,11 +5,15 @@ class RecipesController < ApplicationController
     recipes = Recipe.all
 
     search_term = params[:search]
-
     if search_term
       recipes = recipes.where("title iLIKE ? OR ingredients iLIKE ?", 
                                "%#{search_term}%", 
                                "%#{search_term}%")
+    end
+
+    sort_attribute = params[:sort]
+    if sort_attribute
+      recipes = recipes.order(sort_attribute => :asc)
     end
 
     render json: recipes.as_json
