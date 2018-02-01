@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+  has_many :category_recipes
+  belongs_to :user
+
   def friendly_prep_time
     hours = prep_time / 60
     minutes = prep_time % 60
