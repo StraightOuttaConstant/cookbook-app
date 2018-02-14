@@ -5,6 +5,7 @@
   <title>Cookbook App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="recipes.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="index.js" defer></script>
 </head>
 <body>
@@ -60,12 +61,12 @@
 <template id="recipe-card">
   <div class="col-md-4">
     <div class="card mb-5">
-      <img class="card-img-top" src="http://occ144datkn3vrjlq7r63p19.wpengine.netdna-cdn.com/wp-content/uploads/2012/06/Hand-Sandwiches.jpeg" alt="">
+      <img class="card-img-top" src="" alt="">
       <div class="card-body">
-        <h4 class="card-title">Hand Sandwich</h4>
-        <p class="card-text">Prep Time: 1</p>
-        <p class="card-text">Ingredients: left hand, right hand</p>
-        <p class="card-text">Directions: put your hands together, Wisconsin!</p>
+        <h4 class="card-title"></h4>
+        <p class="card-text">Prep Time: <span class="prep-time"></span></p>
+        <p class="card-text">Ingredients: <span class="ingredients"></span></p>
+        <p class="card-text">Directions: <span class="directions"></span></p>
         <a class="btn btn-primary float-right" href="/recipes/1">More Info</a>
       </div>
     </div>
