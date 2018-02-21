@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user, only: [:create]
+
   def index
     @recipes = Recipe.all
 
@@ -23,7 +25,8 @@ class RecipesController < ApplicationController
                         user_id: current_user.id,
                         ingredients: params[:ingredients],
                         directions: params[:directions],
-                        prep_time: params[:prep_time]
+                        prep_time: params[:prep_time],
+                        image_url: params[:image_url]
                         )
     @recipe.save
     render 'show.json.jbuilder'
@@ -38,7 +41,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     @recipe.title = params[:title] || @recipe.title
-    @recipe.chef = params[:chef] || @recipe.chef
     @recipe.ingredients = params[:ingredients] || @recipe.ingredients
     @recipe.directions = params[:directions] || @recipe.directions
     @recipe.prep_time = params[:prep_time] || @recipe.prep_time
