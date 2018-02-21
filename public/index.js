@@ -1,29 +1,40 @@
+/* global Vue, VueRouter, axios */
 
+var SamplePage = {
+  template: "#sample-page",
+  data: function() {
+    return {
+      message: "This is my Sample Page"
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
 
-var recipeTemplate = document.querySelector("#recipe-card");
-var recipeContainer = document.querySelector(".row");
+var RandomPage = {
+  template: "#random-page",
+  data: function() {
+    return {
+      message: "This is my Random Page"
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
 
-
-axios.get("http://localhost:3000/recipes").then(function(response) {
-  var recipes = response.data;
-  recipes.forEach(function(recipe) {
-    var recipeClone = recipeTemplate.content.cloneNode(true);
-    recipeClone.querySelector(".card-title").innerText = recipe.title;
-    recipeClone.querySelector(".prep-time").innerText = recipe.prep_time;
-    recipeClone.querySelector(".ingredients").innerText = recipe.ingredients;
-    recipeClone.querySelector(".directions").innerText = recipe.directions;
-    recipeClone.querySelector(".card-img-top").src = recipe.image_url;
-    recipeContainer.appendChild(recipeClone);
-  });
+var router = new VueRouter({
+  routes: [
+          { path: "/", component: SamplePage },
+          { path: "/random", component: RandomPage }
+          ],
+  scrollBehavior: function(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
 
-
-
-
-
-
-
-
-
-
-
+var app = new Vue({
+  el: "#vue-app",
+  router: router
+});
