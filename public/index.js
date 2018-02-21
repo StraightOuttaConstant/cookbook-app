@@ -134,6 +134,55 @@ var RecipesNewPage = {
   }
 };
 
+var RecipesEditPage = {
+  template: "#recipes-edit-page",
+  data: function() {
+    return {
+      title: "",
+      ingredients: "",
+      directions: "",
+      prepTime: "",
+      imageUrl: "",
+      errors: []
+    };
+  },
+  created: function() {
+    axios
+      .get("/recipes/1")
+      .then(function(response) {
+        console.log(response.data);
+        var recipe = response.data;
+        this.title = recipe.title
+        this.ingredients = recipe.ingredients
+        this.directions = recipe.directions
+        this.prepTime = recipe.prep_time
+        this.imageUrl = recipe.image_url
+      }.bind(this));
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        title: this.title,
+        ingredients: this.ingredients,
+        directions: this.directions,
+        prep_time: this.prepTime,
+        image_url: this.imageUrl
+      };
+      axios
+        .patch("/recipes/1", params)
+        .then(function(response) {
+          router.push("/recipes/1/edit");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+            router.push("/login");
+          }.bind(this)
+        );
+    }
+  }
+};
+
 var router = new VueRouter({
   routes: [
           { path: "/", component: SamplePage },
@@ -141,7 +190,8 @@ var router = new VueRouter({
           { path: "/signup", component: SignupPage },
           { path: "/login", component: LoginPage },
           { path: "/logout", component: LogoutPage },
-          { path: "/recipes/new", component: RecipesNewPage }
+          { path: "/recipes/new", component: RecipesNewPage },
+          { path: '/recipes/1/edit', component: RecipesEditPage }
           ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
