@@ -130,6 +130,15 @@ var RecipesEditPage = {
   }
 };
 
+var RecipesDestroyPage = {
+  created: function() {
+    axios.delete("/recipes/" + this.$route.params.id)
+      .then(function(response) {
+        router.push("/");
+      });
+  }
+}
+
 // Authorization Components
 
 var SignupPage = {
@@ -215,6 +224,7 @@ var router = new VueRouter({
           { path: "/recipes/new", component: RecipesNewPage },
           { path: "/recipes/:id", component: RecipesShowPage },
           { path: '/recipes/:id/edit', component: RecipesEditPage },
+          { path: '/recipes/:id/delete', component: RecipesDestroyPage },
           { path: "/signup", component: SignupPage },
           { path: "/login", component: LoginPage },
           { path: "/logout", component: LogoutPage }
