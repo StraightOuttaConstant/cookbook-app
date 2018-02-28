@@ -47,8 +47,13 @@ var RecipesNewPage = {
         })
         .catch(
           function(error) {
-            this.errors = error.response.data.errors;
-            router.push("/login");
+            if (error.response.status === 401){
+              router.push("/login");
+            } else if (error.response.status === 422) {
+              this.errors = error.response.data.errors;
+            } else {
+              router.push("/");
+            }
           }.bind(this)
         );
     }
