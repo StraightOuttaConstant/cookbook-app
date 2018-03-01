@@ -21,7 +21,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'knock'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'seed_dump'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -31,6 +30,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'seed_dump'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 

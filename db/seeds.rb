@@ -1,7 +1,7 @@
 User.create!([
-  {name: "bob", email: "bobert@dilbert.org", password: "password"},
-  {name: "Joe Cool", email: "joe@gmail.com", password: "password"},
-  {name: "Schmitty", email: "schmitty_54@aol.com", password: "password"}
+  {name: "bob", email: "bobert@dilbert.org", password: "password", password_confirmation: "password"},
+  {name: "Joe Cool", email: "joe@gmail.com", password: "password", password_confirmation: "password"},
+  {name: "Schmitty", email: "schmitty_54@aol.com", password: "password", password_confirmation: "password"}
 ])
 Category.create!([
   {name: "Cheap"},
