@@ -1,88 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Cookbook App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="recipes.css">
+    <head>
+        <title>Josh's Cookbook</title>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <!-- Bootstrap CSS -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        
+        <!-- Font Awesome CSS -->
+        <link href="assets/css/icons-mind.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+        <!-- Include all css plugins (below), or include individual files as needed -->
+        <link href="assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/flexslider.css" rel="stylesheet" type="text/css">
+        
+        <!-- Theme CSS -->
+        <link href="assets/css/theme.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        
+        <!-- Color Scheme CSS -->
+        <link href="assets/css/color_pink.css" rel="stylesheet" type="text/css">
 
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="index.js" defer></script>
-</head>
-<body>
-  <div id="vue-app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/#/">Cookbook App</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.js"></script>
+        <script src="index.js" defer></script>
+    </head>
+    <body id="page-top">
+        <div id="vue-app">
+            
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/#/recipes/new">New Recipe<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/#/signup">Sign Up</a>
-              <a class="dropdown-item" href="/#/login">Login</a>
-              <a class="dropdown-item" href="/#/logout">Log Out</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+            <!-- Section - Home Start -->
+            <section id="home" class="home-bg-static bg-cover bg-gray-dark bg-overlay-black-5 w-100">
+                <div class="container h-100">
+                    <div class="row align-items-center h-100 justify-content-center">
+                        <div class="col-lg-9 text-center">
+                            <h2 class="font-alt font-w-600 letter-spacing-2 m-0 mt-3 opacity-9-5 text-uppercase text-white title-sm-extra-large-2 title-extra-large-4">Josh's Cookbook</h2>
+                            <span class="d-block font-alt mt-2 opacity-9-5 text-white title-sm-extra-large title-extra-large-3">Tasty Treats</span>
 
-    <router-view></router-view>
+                        </div>
+                        <!-- //.col-lg-9 -->
+                    </div>
+                    <!-- //.row -->
+                </div>
+                <!-- //.container -->
+            </section>
+            <!-- //Section - Home End -->
+            
+            
+            <!-- Navigation Start -->
+            <nav id="navigation" class="navbar navbar-dark navbar-expand-lg bg-dark">
+                <div class="container">
+                    <div class="navbar-header d-lg-none">
+                        <a class="navbar-brand page-scroll" href="#page-top">BERG</a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-berg" aria-controls="navbar-berg" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <!-- //.navbar-header -->
+                    
+                    <div class="navbar-collapse collapse justify-content-center" id="navbar-berg">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#resume">Resume</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#references">References</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#skills">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link page-scroll" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //.navbar-collapse -->
+                </div>
+                <!-- //.container -->
+            </nav>
+            <!-- //Navigation End -->
 
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+            <router-view></router-view>
+            
+            <!-- Footer End -->
+            <footer class="bg-gray-dark">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col text-center">
+                            <ul class="m-0 p-0">
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-facebook ease"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-twitter ease"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-linkedin ease"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-dribbble ease"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-instagram ease"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" class="bg-gray-2 box-shadow-wide rounded text-white text-extra-large">
+                                        <i class="fa fa-pinterest ease"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <p class="m-0 mt-4 text-gray text-medium">&copy; 2017 Nick Berg. All rights reserved.</p>
+                        </div>
+                        <!-- //.col -->
+                    </div>
+                    <!-- //.row -->
+                </div>
+                <!-- //.container -->
+            </footer>
+            <!-- //Footer End -->
+            
+            
+            <!-- Scroll to top -->
+            <a href="#page-top" class="page-scroll scroll-to-top bg-base-color"><i class="fa fa-angle-up"></i></a>
+            
+        </div>
+        <!-- Main JS -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        
+        <!-- Include all js plugins (below) -->
+        <script src="assets/js/pace.min.js"></script>
+        <script src="assets/js/jquery.sticky.js"></script>
+        <script src="assets/js/jquery.easing.min.js"></script>
+        <script src="assets/js/jquery.matchHeight.min.js"></script>
+        <script src="assets/js/jquery.inview.min.js"></script>
+        <script src="assets/js/jquery.countTo.js"></script>
+        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/jquery.flexslider.min.js"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        
+        <!-- Theme JS -->
+        <script src="assets/js/theme.js"></script>
+        
+    </body>
 </html>
+
 
 <!-- Recipe Templates -->
 
 <template id="recipes-index-page">
   <div class="vue-component">
-    <div class="container">
-      <div class="row">
-        <div v-for="recipe in recipes" class="col-md-4">
-          <div class="card mb-5">
-            <img class="card-img-top" v-bind:src="recipe.image_url" alt="">
-            <div class="card-body">
-              <h2 class="card-title">{{ recipe.title }}</h2>
-              <p class="card-text">Prep Time: {{ recipe.formatted.prep_time }}</p>
-              <p class="card-text">Ingredients: 
-                <ul>
-                  <li v-for="ingredient in recipe.formatted.ingredients">{{ ingredient }}</li>
-                </ul>
-              </p>
-              <a v-bind:href="'/#/recipes/' + recipe.id" class="btn btn-primary float-right">More Info</a>
+    <section class="bg-gray-dark-2">
+        <div class="container">
+
+            <div class="row mt-5 pt-5">
+                <div v-for="recipe in recipes" class="col-lg-4 bg-gray-dark-3 border-md-0 border-bottom border-right border-gray-2" data-mh="mh-col-services">
+                    <a v-bind:href="'/#/recipes/' + recipe.id">
+                    <div class="px-lg-3 py-5 py-lg-4 text-center text-lg-left">
+                        <i class="icon-Chess text-base-color title-extra-large"></i>
+                        <span class="d-block font-alt letter-spacing-2 mt-2 text-extra-large text-uppercase text-white">{{ recipe.title }}</span>
+                        <span class="bg-base-color ml-lg-0 mt-3 mx-auto sep-line-thick"></span>
+                        <p class="m-0 mt-3 text-gray text-medium">Prep Time: {{ recipe.formatted.prep_time }}</p>
+                        <p class="m-0 mt-3 text-gray text-medium">Ingredients: 
+                            <ul>
+                                <li class="m-0 mt-3 text-gray text-medium" v-for="ingredient in recipe.formatted.ingredients">{{ ingredient }}</li>
+                            </ul>
+                        </p>
+                    </div>
+                    </a>
+                    <!-- //.px-lg-3 -->
+                </div>
+                <!-- //.col-lg-4 -->
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
