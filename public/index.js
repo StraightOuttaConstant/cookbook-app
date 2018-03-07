@@ -6,7 +6,8 @@ var RecipesIndexPage = {
   template: "#recipes-index-page",
   data: function() {
     return {
-      recipes: []
+      recipes: [],
+      currentRecipe: {formatted: {}}
     };
   },
   created: function() {
@@ -15,7 +16,11 @@ var RecipesIndexPage = {
         this.recipes = response.data;
       }.bind(this));
   },
-  methods: {},
+  methods: {
+    setCurrentRecipe: function(recipe) {
+      this.currentRecipe = recipe;
+    }
+  },
   computed: {}
 };
 
