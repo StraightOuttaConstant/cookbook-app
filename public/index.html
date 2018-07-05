@@ -68,29 +68,12 @@
                     <div class="navbar-collapse collapse justify-content-center" id="navbar-berg">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#home">Home</a>
+                                <a class="nav-link page-scroll" href="/#/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#profile">Profile</a>
+                                <a class="nav-link page-scroll" href="/#/recipes/new">New Recipe</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#services">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#resume">Resume</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#references">References</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#skills">Skills</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#contact">Contact</a>
-                            </li>
+
                         </ul>
                     </div>
                     <!-- //.navbar-collapse -->
@@ -185,7 +168,7 @@
     <section class="bg-gray-dark-2">
         <div class="container">
 
-            <div class="row mt-5 pt-5">
+            <div class="row mt-5">
                 <div v-for="recipe in recipes" class="col-lg-4 bg-gray-dark-3 border-md-0 border-bottom border-right border-gray-2" data-mh="mh-col-services">
                     <div class="px-lg-3 py-5 py-lg-4 text-center text-lg-left">
                         <i class="icon-Chess text-base-color title-extra-large"></i>
@@ -200,6 +183,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" v-on:click="setCurrentRecipe(recipe)">
                           More info
                         </button>
+                        <a v-bind:href="'/#/recipes/' + recipe.id">go to show</a>
                     </div>
                     <!-- //.px-lg-3 -->
 
@@ -224,7 +208,7 @@
                             <ol>
                               <li v-for="direction in currentRecipe.formatted.directions">{{ direction }}</li>
                             </ol>
-                            <img v-bind:src="currentRecipe.image_url" alt="">
+                            <img class="img-thumbnail" v-bind:src="currentRecipe.image_url" alt="">
                             <a class="btn btn-warning" v-bind:href="'/#/recipes/' + recipe.id + '/edit'">Edit</a>
                             <a class="btn btn-danger" v-bind:href="'/#/recipes/' + recipe.id + '/delete'">Delete</a>
                           </div>
@@ -246,54 +230,154 @@
 <template id="recipes-new-page">
   <div class="vue-component">
 
-    <div class="container">
-      <h1>New Recipe</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      <div class="form-group">
-        <label>Title:</label> 
-        <input type="text" class="form-control" v-model="title">
-      </div>
-      <div class="form-group">
-        <label>Ingredients:</label>
-        <input type="text" class="form-control" v-model="ingredients">
-      </div>
-      <div class="form-group">
-        <label>Directions:</label>
-        <input type="text" class="form-control" v-model="directions">
-      </div>
-      <div class="form-group">
-        <label>Prep Time:</label>
-        <input type="text" class="form-control" v-model="prepTime">
-      </div>
-      <div class="form-group">
-        <label>Image URL:</label>
-        <input type="text" class="form-control" v-model="imageUrl">
-      </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
+    <!-- Section - Contact Start -->
+    <section id="contact" class="bg-gray-dark-2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="font-alt font-w-600 letter-spacing-2 title-extra-large text-uppercase text-white">New Recipe</h3>
+                    <p class="mt-3 text-gray text-extra-large"><i>What tasty treats do you have in store?</i></p>
+                    <ul>
+                      <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                    </ul>
+                    <span class="bg-base-color mt-4 mx-auto sep-line-medium-thick-long"></span>
+                </div>
+                <!-- //.col-lg-8 -->
+            </div>
+            <!-- //.row -->
+            
+            
+            <div class="row justify-content-center mt-5 pt-lg-5">
+                <div class="col-lg-8">
+                    <form action="#">
 
+                        <div class="row">
+
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" class="font-alt form-control required" placeholder="Title" v-model="title">
+                                </div>
+                                <!-- //.form-group -->
+                            </div>
+                            <!-- //.col-lg-6 -->
+                            
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" class="font-alt form-control required email" id="email" placeholder="Prep Time" v-model="prepTime">
+                                </div>
+                                <!-- //.form-group -->
+                            </div>
+                            <!-- //.col-lg-6 -->
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" class="font-alt form-control required" v-model="imageUrl" placeholder="Image URL">
+                                </div>
+                                <!-- //.form-group -->
+                            </div>
+                            <!-- //.col-12 -->
+                            
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="font-alt form-control required" rows="6" placeholder="Ingredients" v-model="ingredients"></textarea>
+                                </div>
+                                <!-- //.form-group -->
+                            </div>
+                            <!-- //.col-12 -->
+                            
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="font-alt form-control required" rows="6" placeholder="Directions" v-model="directions"></textarea>
+                                </div>
+                                <!-- //.form-group -->
+                            </div>
+                            <!-- //.col-12 -->
+                            
+                            <div class="col-12">
+
+                                <button class="btn btn-base-color btn-block btn-large box-shadow-wide mt-5 mx-0 text-white" v-on:click="submit()">Add Recipe</button>
+                            </div>
+                            <!-- //.col-12 -->
+                        </div>
+                        <!-- //.row -->
+                    </form>
+                </div>
+                <!-- //.col-lg-8 -->
+            </div>
+            <!-- //.row -->
+        </div>
+        <!-- //.container -->
+    </section>
+    <!-- //Section - Contact End -->
+    
   </div>
 </template>
 
 <template id="recipes-show-page">
   <div class="vue-component">
-    <div class="container">
-      <h1>{{ recipe.title }}</h1>
-      <h4>Prep Time: {{ recipe.formatted.prep_time }}</h4>
-      <h3>Ingredients</h3>
-      <ul>
-        <li v-for="ingredient in recipe.formatted.ingredients">{{ ingredient }}</li>
-      </ul>
-      <h3>Directions</h3>
-      <ol>
-        <li v-for="direction in recipe.formatted.directions">{{ direction }}</li>
-      </ol>
-      <img v-bind:src="recipe.image_url" alt="">
-      <a class="btn btn-warning" v-bind:href="'/#/recipes/' + recipe.id + '/edit'">Edit</a>
-      <a class="btn btn-danger" v-bind:href="'/#/recipes/' + recipe.id + '/delete'">Delete</a>
-    </div>
+
+
+      <!-- Section - Profile Start -->
+      <section id="profile" class="bg-gray-dark-2">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4 d-none d-lg-block">
+
+                      <img v-bind:src="recipe.image_url" alt="" class="img-fluid">
+                      
+                      <div class="p-3 bg-gray-2 opacity-9 text-center">
+                          <span class="font-alt font-w-600 letter-spacing-2 text-lg-small text-large text-uppercase text-white">Delicious</span>
+                      </div>
+                      <!-- //.p-3 -->
+                  </div>
+                  <!-- //.col-lg-4 -->
+                  
+                  <div class="col-lg-8">
+                      <div class="pl-lg-4">
+                          <h3 class="font-alt font-w-600 letter-spacing-2 title-extra-large text-uppercase text-white">{{ recipe.title }}</h3>
+                          <p class="mt-4 text-large text-white">Prep Time: {{ recipe.formatted.prep_time }}</p>
+                          <span class="bg-base-color mt-4 sep-line-medium-thick"></span>
+
+                          <div class="row pt-5">
+                              <div class="col-md-6">
+                                  <span class="d-block font-alt letter-spacing-2 text-extra-large text-uppercase text-white">Ingredients</span>
+                                  <ul class="list-unstyled mt-2 text-gray text-large">
+                                      <li v-for="ingredient in recipe.formatted.ingredients">{{ ingredient }}</li>
+                                  </ul>
+
+                                  <span class="d-block font-alt letter-spacing-2 text-extra-large text-uppercase text-white">Directions</span>
+                                  <ul class="list-unstyled mt-2 text-gray text-large">
+                                      <li v-for="direction in recipe.formatted.directions">{{ direction }}</li>
+                                  </ul>
+
+
+                              </div>
+                              <!-- //.col-md-6 -->
+                              
+                              <div class="col-md-6">
+              
+                                  <a class="btn box-shadow-wide btn-base-color btn-large mt-4 mt-md-5" v-bind:href="'/#/recipes/' + recipe.id + '/edit'">Edit</a>
+                                  <a class="btn box-shadow-wide btn-base-color btn-large mt-4 mt-md-5" v-bind:href="'/#/recipes/' + recipe.id + '/delete'">Delete</a>
+                              </div>
+
+
+                              <!-- //.col-md-6 -->
+                          </div>
+                          <!-- //.row -->
+                      </div>
+                      <!-- //.pl-lg-4 -->
+                  </div>
+                  <!-- //.col-lg-8 -->
+              </div>
+              <!-- //.row -->
+          </div>
+          <!-- //.container -->
+      </section>
+      <!-- //Section - Profile End -->
+
+
   </div>
 </template>
 
